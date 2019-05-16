@@ -15,7 +15,7 @@
   },
   "scripts": {
     "json:server": "json-server --watch db.json --routes routes.json --port 4000",
-    "start": "react-scripts start node json:server",
+    "start": "react-scripts start json:server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
