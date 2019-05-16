@@ -1,0 +1,410 @@
+{
+  "agency": [
+    {
+      "id": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Environment Canada",
+      "type": "gov",
+      "country": "ca",
+      "url": "https://weather.gc.ca"
+    },
+    {
+      "id": "05c0ad08-5c06-41b0-92e5-1e8edc915fcb",
+      "name": "National Oceanic And Athmospheric Administration",
+      "type": "gov",
+      "country": "us",
+      "url": "https://www.weather.gov/"
+    },
+    {
+      "id": "e17f8036-2537-46ba-a124-43fe9fd9a231",
+      "name": "Meteo Group",
+      "type": "com",
+      "country": "global",
+      "url": "https://www.meteogroup.com"
+    },
+    {
+      "id": "f73a5ac8-19eb-465d-a925-2cc1b503bc49",
+      "name": "World Meteoroligcal Organization",
+      "type": "int",
+      "country": "global",
+      "url": "https://public.wmo.int/en"
+    }
+  ],
+  "region": [
+    {
+      "id": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Alberta",
+      "type": "prov"
+    },
+    {
+      "id": "5caa88e1-3d06-4c0c-b27d-24a39bbb5767",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "British Columbia",
+      "type": "prov"
+    },
+    {
+      "id": "4c4ab5ca-9398-4894-ae67-4637df794eca",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Manitoba",
+      "type": "prov"
+    },
+    {
+      "id": "450ce44c-944e-4040-a7ea-5f34a150d4cd",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "New Brunswick",
+      "type": "prov"
+    },
+    {
+      "id": "6a9e1afb-0632-464f-aae7-00699eb16092",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Newfoundland and Labrador",
+      "type": "prov"
+    },
+    {
+      "id": "6a9e1afb-0632-464f-aae7-00699eb16092",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Northwest Territories",
+      "type": "terr"
+    },
+    {
+      "id": "874ec6ba-b311-477c-9a27-13a151b696f8",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Nova Scotia",
+      "type": "prov"
+    },
+    {
+      "id": "f52fbdd6-d7ab-4ab5-a22e-128dd6094378",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Nunavut",
+      "type": "terr"
+    },
+    {
+      "id": "b7326910-a430-46a6-b324-aaea95cbed11",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Ontario",
+      "type": "prov"
+    },
+    {
+      "id": "a30f66c7-4cb7-4c67-85a0-43dd05d6ca1f",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Prince Edward Island",
+      "type": "prov"
+    },
+    {
+      "id": "b0c1770d-460c-425d-b2d6-ef02c5670b48",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Quebec",
+      "type": "prov"
+    },
+    {
+      "id": "294edf63-2453-48ac-8fad-b67825c1d17a",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Saskatchewan",
+      "type": "prov"
+    },
+    {
+      "id": "e652a1a6-47a8-4a2e-adc9-47dbaafb1bf5",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "name": "Yukon",
+      "type": "terr"
+    }
+  ],
+  "metric": [
+    {
+      "id": "e9f795d2-cb0d-45f5-bfd8-1ea134cb5cea",
+      "name": "Air Temperature",
+      "unit": "Farenheit",
+      "enabled": true
+    },
+    {
+      "id": "70cac38d-148a-4404-84b1-03ed10a169d4",
+      "name": "Dew Point",
+      "unit": "celcius",
+      "enabled": false
+    },
+    {
+      "id": "ca7039c9-b192-4264-98c3-58b5459d65c2",
+      "name": "Relative Humidity",
+      "unit": "%",
+      "enabled": false
+    },
+    {
+      "id": "7ff0c7a0-44f4-4259-80ce-f585a583cc5d",
+      "name": "Wind Speed",
+      "unit": "mph",
+      "enabled": false
+    }
+  ],
+  "station": [
+    {
+      "id": "da25e204-7387-4cb5-8344-b3c9c4ce2823",
+      "IATA": "CAHR",
+      "name": "HARRINGTON CDA CS",
+      "WMO": "7135",
+      "MSC_ID": "",
+      "Latitude": 46.343611,
+      "Longitude": -63.169722,
+      "elevation": 53,
+      "provider": "MSC",
+      "dataset": "CA",
+      "type": "auto",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "a30f66c7-4cb7-4c67-85a0-43dd05d6ca1f"
+    },
+    {
+      "IATA": "CNES",
+      "name": "EDMONTON SOUTH CAMPUS",
+      "WMO": "",
+      "MSC_ID": "3012220",
+      "Latitude": "53.490014",
+      "Longitude": "-113.537778",
+      "elevation": "670",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "3zvy_MT"
+    },
+    {
+      "IATA": "CNLB",
+      "name": "LINDBERGH AGDM",
+      "WMO": "71567",
+      "MSC_ID": "3013921",
+      "Latitude": "53.942778",
+      "Longitude": "-110.578889",
+      "elevation": "630",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "MOCbiec"
+    },
+    {
+      "IATA": "CNLD",
+      "name": "LEEDALE AGDM",
+      "WMO": "71565",
+      "MSC_ID": "3023740",
+      "Latitude": "52.553056",
+      "Longitude": "-114.4725",
+      "elevation": "947",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "xIxxRlU"
+    },
+    {
+      "IATA": "CNNR",
+      "name": "NIER AGDM",
+      "WMO": "71495",
+      "MSC_ID": "3034795",
+      "Latitude": "51.369444",
+      "Longitude": "-114.099167",
+      "elevation": "1145",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "7v_0zeK"
+    },
+    {
+      "IATA": "CNPK",
+      "name": "PEKISKO",
+      "WMO": "71669",
+      "MSC_ID": "3055119",
+      "Latitude": "50.3685",
+      "Longitude": "-114.4154",
+      "elevation": "1415",
+      "provider": "MSC",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "uW25PNE"
+    },
+    {
+      "IATA": "CNTK",
+      "name": "TOMAHAWK AGDM",
+      "WMO": "71566",
+      "MSC_ID": "3016505",
+      "Latitude": "53.439444",
+      "Longitude": "-114.718333",
+      "elevation": "814",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "aWoL4TA"
+    },
+    {
+      "IATA": "CNTL",
+      "name": "TOMPKINS LANDING AGCM",
+      "WMO": "",
+      "MSC_ID": "3076530",
+      "Latitude": "58.020578",
+      "Longitude": "-116.847797",
+      "elevation": "343",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "7rfogx5"
+    },
+    {
+      "IATA": "CPAA",
+      "name": "ALLIANCE AGCM",
+      "WMO": "71006",
+      "MSC_ID": "3010162",
+      "Latitude": "52.31528",
+      "Longitude": "-111.778613",
+      "elevation": "737",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "Cmtdbfb"
+    },
+    {
+      "IATA": "CPAC",
+      "name": "ACADIA VALLEY",
+      "WMO": "71048",
+      "MSC_ID": "3020035",
+      "Latitude": "51.066136",
+      "Longitude": "-110.316969",
+      "elevation": "735",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "V3sxwuI"
+    },
+    {
+      "IATA": "CPAF",
+      "name": "ATHABASCA AGCM",
+      "WMO": "71271",
+      "MSC_ID": "3060330",
+      "Latitude": "54.634723",
+      "Longitude": "-113.381947",
+      "elevation": "635",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "WYtC14c"
+    },
+    {
+      "IATA": "CPAH",
+      "name": "ALBERT HALL AGCM",
+      "WMO": "71005",
+      "MSC_ID": "3010060",
+      "Latitude": "53.113334",
+      "Longitude": "-111.181113",
+      "elevation": "658",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "h1aMx6r"
+    },
+    {
+      "IATA": "CPAT",
+      "name": "ATLEE AGCM",
+      "WMO": "71986",
+      "MSC_ID": "3020405",
+      "Latitude": "50.810019",
+      "Longitude": "-111.005564",
+      "elevation": "795",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "cxSphf8"
+    },
+    {
+      "IATA": "CPAV",
+      "name": "ARDENVILLE",
+      "WMO": "",
+      "MSC_ID": "3030200",
+      "Latitude": "49.527511",
+      "Longitude": "-113.433914",
+      "elevation": "1126",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "MaE-AfV"
+    },
+    {
+      "IATA": "CPAZ",
+      "name": "AZURE",
+      "WMO": "71981",
+      "MSC_ID": "3030450",
+      "Latitude": "50.511944",
+      "Longitude": "-114.013061",
+      "elevation": "1143",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "zy4PoyM"
+    },
+    {
+      "IATA": "CPBA",
+      "name": "BARONS AGCM",
+      "WMO": "71007",
+      "MSC_ID": "3030529",
+      "Latitude": "50.025836",
+      "Longitude": "-113.224447",
+      "elevation": "967",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "flRRyZ4"
+    },
+    {
+      "IATA": "CPBB",
+      "name": "BUSBY AGCM",
+      "WMO": "71284",
+      "MSC_ID": "3010979",
+      "Latitude": "53.930835",
+      "Longitude": "-113.921667",
+      "elevation": "714",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "9rexDK_"
+    },
+    {
+      "IATA": "CPBC",
+      "name": "BALLATER AGCM",
+      "WMO": "",
+      "MSC_ID": "3070495",
+      "Latitude": "55.576944",
+      "Longitude": "-117.235556",
+      "elevation": "560",
+      "provider": "GovAB",
+      "dataset": "CA",
+      "type": "AUTO",
+      "agency": "738ac4c1-0eca-492c-b1a6-ddf661094a09",
+      "region": "92497a9f-ee15-4813-8076-76ef52a9fee4",
+      "id": "G87ZJ6K"
+    }
+  ]
+}

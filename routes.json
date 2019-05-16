@@ -1,0 +1,11 @@
+{
+  "/weather/v1/agency":"/agency",
+  "/weather/v1/agency/:id": "/agency?id=:id",
+  "/weather/v1/region/:id": "/region?id=:id",
+  "/weather/v1/region/:regionID/agency/:agencyID/station": "/station?region=:regionID&agency=:agencyID",
+  "/weather/v1/region":"/region",
+  "/weather/v1/region/:name":"/region?name=:name",
+  "/weather/v1/agency/:id/region": "/region?agency=:id",
+  "/weather/v1/agency/:id/station": "/station?agency=:id",
+  "/weather/v1/station":"/station"
+}
