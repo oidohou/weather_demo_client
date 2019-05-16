@@ -31,7 +31,6 @@ const styles = theme => ({
   table: {
       maxWidth: '100%',
     },
-
   grid: {
       padding: theme.spacing.unit ,
       textAlign: 'center',
@@ -220,8 +219,8 @@ class App extends React.Component  {
         const { agencies} = this.state;
       return (
         <div className={classes.root} >
-            <Grid container spacing={0}>
-            <Grid item xs={6} className={classes.grid}>
+            <Grid container spacing={8}>
+            <Grid item xs={12} sm={6} className={classes.grid}>
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
                     Agency
@@ -236,7 +235,7 @@ class App extends React.Component  {
             </FormControl>
             </Grid>
 
-            <Grid item xs={6} className={classes.grid}>
+            <Grid item xs={12} sm={6} className={classes.grid}>
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
                     Region
@@ -251,7 +250,7 @@ class App extends React.Component  {
             </FormControl>
             </Grid>
             <Paper className={classes.paper}>
-                <Table className={classes.table}
+                <Table item xs={12} sm={6} className={classes.table}
                     data={orderBy(
                         this.state.data,
                         this.state.columnToSort,
