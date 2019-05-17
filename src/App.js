@@ -22,7 +22,7 @@ const styles = theme => ({
 
   },
   paper:{
-    width: '95%',
+    width: '90%',
     maxHeight:480,
         marginTop: theme.spacing.unit ,
         margin: '0 auto',
@@ -49,6 +49,7 @@ const invertDirection= {
     'asc': 'desc',
     'desc':'asc'
 }
+const url = window.location.protocol+'//'+window.location.hostname;
 
 class App extends React.Component  {
 
@@ -62,20 +63,24 @@ class App extends React.Component  {
             agency:'',
             columnToSort: '',
             sortDirection:'desc',
+            baseUrl:'',
         }
 
     componentDidMount = async () => {
      this.setState({
           labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
+
         });
 
-    fetch('http://localhost:4000/weather/v1/agency')
+
+    console.log(url);
+    fetch(url+'/weather/v1/agency')
         .then(resp=> resp.json())
         .then(data =>this.setState({agencies:data }))
 
     try{
-        let stationUrl = await fetch('http://localhost:4000/weather/v1/station');
-        let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+        let stationUrl = await fetch(url+'/weather/v1/station');
+        let regionUrl = await fetch(url+'/weather/v1/region');
         stationUrl = await stationUrl.json();
         regionUrl = await regionUrl.json();
         const data =[];
@@ -99,11 +104,11 @@ class App extends React.Component  {
         this.setState({ agency: event.target.value });
         if (event.target.value !== ''){
             try{
-                let agency_regions_Url = await fetch('http://localhost:4000/weather/v1/agency/'+event.target.value+'/region');
+                let agency_regions_Url = await fetch(url+'/weather/v1/agency/'+event.target.value+'/region');
                     agency_regions_Url = await agency_regions_Url.json();
-                let agency_stations_Url = await fetch('http://localhost:4000/weather/v1/agency/'+event.target.value+'/station');
+                let agency_stations_Url = await fetch(url+'/weather/v1/agency/'+event.target.value+'/station');
                     agency_stations_Url = await agency_stations_Url.json();
-                let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+                let regionUrl = await fetch(url+'/weather/v1/region');
                     regionUrl = await regionUrl.json();
                 const data_station =[];
                 this.setState({regions:agency_regions_Url })
@@ -120,8 +125,8 @@ class App extends React.Component  {
             }
         }else{
              try{
-                 let stationUrl = await fetch('http://localhost:4000/weather/v1/station');
-                 let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+                 let stationUrl = await fetch(url+'/weather/v1/station');
+                 let regionUrl = await fetch(url+'/weather/v1/region');
                  stationUrl = await stationUrl.json();
                  regionUrl = await regionUrl.json();
                  const data =[];
@@ -146,9 +151,10 @@ class App extends React.Component  {
         this.setState({ [event.target.name]: event.target.value });
         if (event.target.value !== ''){
                     try{
-                        let region_stations_Url = await fetch('http://localhost:4000/weather/v1/region/'+event.target.value +'/agency/'+this.state.agency+'/station');
+                        let region_stations_Url = await fetch(url+'/weather/v1/region/'+event.target.value
+                        +'/agency/'+this.state.agency+'/station');
                             region_stations_Url = await region_stations_Url.json();
-                        let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+                        let regionUrl = await fetch(url+'/weather/v1/region');
                             regionUrl = await regionUrl.json();
                         const data_station =[];
                         region_stations_Url.map( station => {
@@ -166,9 +172,10 @@ class App extends React.Component  {
 
                         if (event.target.value === '' && this.state.agency !== ''){
                             try{
-                                let agency_stations_Url = await fetch('http://localhost:4000/weather/v1/agency/'+this.state.agency+'/station');
+                                let agency_stations_Url = await fetch(url+'/weather/v1/agency/'+this.state
+                                .agency+'/station');
                                     agency_stations_Url = await agency_stations_Url.json();
-                                let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+                                let regionUrl = await fetch(url+'/weather/v1/region');
                                     regionUrl = await regionUrl.json();
                                 const data_station =[];
                                 agency_stations_Url.map( station => {
@@ -184,8 +191,8 @@ class App extends React.Component  {
                             }
                         }else{
                              try{
-                                 let stationUrl = await fetch('http://localhost:4000/weather/v1/station');
-                                 let regionUrl = await fetch('http://localhost:4000/weather/v1/region');
+                                 let stationUrl = await fetch(url+'/weather/v1/station');
+                                 let regionUrl = await fetch(url+'/weather/v1/region');
                                  stationUrl = await stationUrl.json();
                                  regionUrl = await regionUrl.json();
                                  const data =[];

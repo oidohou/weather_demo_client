@@ -14,7 +14,7 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "json:server": "json-server --watch db.json --routes routes.json --port 4000",
+    "json:server": "json-server --watch db.json --routes routes.json",
     "start:app": "react-scripts start",
     "start": "npm-run-all --parallel start:app json:server",
     "build": "react-scripts build",
