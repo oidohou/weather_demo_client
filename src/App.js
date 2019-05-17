@@ -49,7 +49,7 @@ const invertDirection= {
     'asc': 'desc',
     'desc':'asc'
 }
-const url = window.location.protocol+'//'+window.location.hostname;
+const url = window.location.protocol+'//'+window.location.hostname+':4000';
 
 class App extends React.Component  {
 
@@ -63,7 +63,6 @@ class App extends React.Component  {
             agency:'',
             columnToSort: '',
             sortDirection:'desc',
-            baseUrl:'',
         }
 
     componentDidMount = async () => {
