@@ -145,8 +145,29 @@ By the following
                     ]}
    ```
 
+5. Update package.json sripts   
 
+ ```javascript
+"scripts": {
+    "json:server": "json-server --watch db.json --routes routes.json --port 4000",
+    "start:app": "cross-env PORT=8083 react-scripts start",
+    "start": "npm-run-all --parallel start:app json:server",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+ ```
+ 
+ By
+ 
+  ```javascript
+"scripts": {
+    "json:server": "json-server --watch db.json --routes routes.json --port 4000",
+    "start": "cross-env PORT=8083 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+ ```
 
 Then run both BackEnd Java/SpringBoot API and the React app.
-
-   
