@@ -41,3 +41,112 @@ git clone https://github.com/DraQlaBlood/weather_demo_client.git
 
 2. Update **const url** API's protocol+hostname+port in App.js
 
+3. Update the BackEnd API with CrossOrigin annotation on the request endpoint used.
+
+4. Update the table component in App.js
+
+```javascript
+     header={[
+                        {
+                            name: "IATA",
+                            props: "IATA"
+                        },
+                        {
+                            name: "Name",
+                            props: "name"
+                        },
+                        {
+                            name: "WMO",
+                            props: "WMO"
+                        },
+                        {
+                            name: "MSC",
+                            props: "MSC_ID"
+                        },
+                        {
+                            name: "Latitude",
+                            props: "Latitude"
+                        },
+                        {
+                            name: "Longitude",
+                            props: "Longitude"
+                        },
+                        {
+                            name: "Elevation",
+                            props: "elevation"
+                        },
+                        {
+                            name: "Provider",
+                            props: "provider"
+                        },
+                        {
+                            name: "DataSet",
+                            props: "dataset"
+                        },
+                        {
+                            name: "Type",
+                            props: "type"
+                        },
+                        {
+                            name: "Region",
+                            props: "region"
+                        }
+                    ]}
+   ```
+
+By the following 
+
+```javascript
+     header={[
+                        {
+                            name: "IATA",
+                            props: "iata"
+                        },
+                        {
+                            name: "Name",
+                            props: "name"
+                        },
+                        {
+                            name: "WMO",
+                            props: "wmo"
+                        },
+                        {
+                            name: "MSC",
+                            props: "msc_ID"
+                        },
+                        {
+                            name: "Latitude",
+                            props: "latitude"
+                        },
+                        {
+                            name: "Longitude",
+                            props: "longitude"
+                        },
+                        {
+                            name: "Elevation",
+                            props: "elevation"
+                        },
+                        {
+                            name: "Provider",
+                            props: "provider"
+                        },
+                        {
+                            name: "DataSet",
+                            props: "dataset"
+                        },
+                        {
+                            name: "Type",
+                            props: "type"
+                        },
+                        {
+                            name: "Region",
+                            props: "region"
+                        }
+                    ]}
+   ```
+
+
+
+Then run both BackEnd Java/SpringBoot API and the React app.
+
+   
