@@ -19,7 +19,6 @@ const styles = theme => ({
   root: {
     width: '100%',
     display: 'flex',
-
   },
   paper:{
     width: '90%',
@@ -53,26 +52,25 @@ const url = window.location.protocol+'//'+window.location.hostname+':4000';
 
 class App extends React.Component  {
 
-    state = {
-            labelWidth: 0,
-            agencies:[],
-            regions:[],
-            data:[],
+            state = {
+                labelWidth: 5,
+                agencies:[],
+                regions:[],
+                data:[],
+                isLoading: true,
 
-            region:'',
-            agency:'',
-            columnToSort: '',
-            sortDirection:'desc',
-        }
+                region:'',
+                agency:'',
+                columnToSort: '',
+                sortDirection:'desc',
+            }
+
+
 
     componentDidMount = async () => {
-     this.setState({
-          labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
 
-        });
+    this.setState({labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth, isLoading:true });
 
-
-    console.log(url);
     fetch(url+'/weather/v1/agency')
         .then(resp=> resp.json())
         .then(data =>this.setState({agencies:data }))
@@ -90,17 +88,15 @@ class App extends React.Component  {
                 data.push(newStation);
                 return '';
           })
-          this.setState({data})
+          this.setState({data:data, isLoading:false})
     }catch(e){
          console.log("error", e)
     }
 
-
-
     }
 
     handleChange = async(event) => {
-        this.setState({ agency: event.target.value });
+        this.setState({ agency: event.target.value , isLoading:true});
         if (event.target.value !== ''){
             try{
                 let agency_regions_Url = await fetch(url+'/weather/v1/agency/'+event.target.value+'/region');
@@ -118,7 +114,7 @@ class App extends React.Component  {
                             data_station.push(newStation);
                             return '';
                       })
-                this.setState({data:data_station })
+                this.setState({data:data_station, isLoading:false})
             }catch (e){
             console.log("error",e)
             }
@@ -138,7 +134,7 @@ class App extends React.Component  {
 
                          return '';
                    })
-                   this.setState({data})
+                   this.setState({data:data,isLoading:false})
              }catch(e){
                   console.log("error", e)
              }
@@ -147,7 +143,7 @@ class App extends React.Component  {
      };
 
     handleRegionChange =async(event) => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [event.target.name]: event.target.value,isLoading:true });
         if (event.target.value !== ''){
                     try{
                         let region_stations_Url = await fetch(url+'/weather/v1/region/'+event.target.value
@@ -163,7 +159,7 @@ class App extends React.Component  {
                                     data_station.push(newStation);
                                     return '';
                               })
-                        this.setState({data:data_station })
+                        this.setState({data:data_station , isLoading:false})
                     }catch (e){
                     console.log("error",e)
                     }
@@ -184,7 +180,7 @@ class App extends React.Component  {
                                             data_station.push(newStation);
                                             return '';
                                       })
-                                this.setState({data:data_station })
+                                this.setState({data:data_station ,isLoading:false})
                             }catch (e){
                             console.log("error",e)
                             }
@@ -203,7 +199,7 @@ class App extends React.Component  {
 
                                          return '';
                                    })
-                                   this.setState({data})
+                                   this.setState({data:data ,isLoading:false})
                              }catch(e){
                                   console.log("error", e)
                              }
@@ -222,10 +218,54 @@ class App extends React.Component  {
       }
     render(){
         const { classes } = this.props;
-        const { agencies} = this.state;
+        const { agencies, isLoading} = this.state;
+
+        if (isLoading) {
+            return (
+                           <div className={classes.root} >
+                               <Grid container spacing={0}>
+                               <Grid item xs={12} sm={6} className={classes.grid}>
+                               <FormControl variant="outlined" className={classes.formControl}>
+                                   <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
+                                       Agency
+                                   </InputLabel>
+                                   <Select value ={this.state.agency} onChange={this.handleChange}
+                                       input={<OutlinedInput labelWidth={this.state.labelWidth} name="agency" id="outlined-agency-simple"/>}>
+                                       <MenuItem value=""><em>All Agencies</em></MenuItem>
+                                       {agencies.map((value,index) =>
+                                           <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                                       )}
+                                   </Select>
+                               </FormControl>
+                               </Grid>
+
+                               <Grid item xs={12} sm={6} className={classes.grid}>
+                               <FormControl variant="outlined" className={classes.formControl}>
+                                   <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
+                                       Region
+                                   </InputLabel>
+                                   <Select value ={this.state.region} onChange={this.handleRegionChange}
+                                       input={<OutlinedInput labelWidth={this.state.labelWidth} name="region" id="outlined-region-simple"/>}>
+                                       <MenuItem value=""><em>None</em></MenuItem>
+                                       {this.state.regions.map((value,index) =>
+                                            <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                                       )}
+                                   </Select>
+                               </FormControl>
+                               </Grid>
+
+                               <Paper className={classes.paper}>
+                                  <p>Loading data ...</p>
+                               </Paper>
+
+                           </Grid>
+                           </div>
+                         )
+        }
+
       return (
         <div className={classes.root} >
-            <Grid container spacing={8}>
+            <Grid container spacing={0}>
             <Grid item xs={12} sm={6} className={classes.grid}>
             <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
@@ -255,6 +295,11 @@ class App extends React.Component  {
                 </Select>
             </FormControl>
             </Grid>
+
+            <Grid item xs={12} sm={12} className={classes.grid}>
+                <span> {this.state.data.length} Station(s) found </span>
+            </Grid>
+
             <Paper className={classes.paper}>
                 <Table item xs={12} sm={6} className={classes.table}
                     data={orderBy(
@@ -312,6 +357,7 @@ class App extends React.Component  {
                         }
                     ]}/>
             </Paper>
+
         </Grid>
         </div>
       );

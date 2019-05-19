@@ -13,7 +13,7 @@ const row = (x,i,header) =>(
         <TableRow key={i} >
         {
             header.map((y,k)=> (
-                <TableCell key={k} >
+                <TableCell key={k} className="td" >
                     {x[y.props]}
                 </TableCell>
             ))
@@ -26,7 +26,7 @@ export default({data,header, handleSort,columnToSort,sortDirection}) =>
         <TableHead >
           <TableRow  >
           {header.map((x,i)=>
-            <TableCell key = {i} >
+            <TableCell key = {i} className="td" >
                 <div style={{
                      display: "flex",
                      alignItems: "center"
