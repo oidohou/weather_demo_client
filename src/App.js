@@ -54,52 +54,48 @@ const url = window.location.protocol+'//'+window.location.hostname+':4000';
 const override = css`
     display: block;
     margin: 0 auto;
-    border-color: red;
+    border-color: #000000;
 `;
 
 class App extends React.Component  {
 
-            state = {
-                labelWidth: 0,
-                agencies:[],
-                regions:[],
-                data:[],
-                isLoading: true,
+    state = {
+        labelWidth: 0,
+        agencies:[],
+        regions:[],
+        data:[],
+        isLoading: true,
 
-                region:'',
-                agency:'',
-                columnToSort: '',
-                sortDirection:'desc',
-            }
-
-
+        region:'',
+        agency:'',
+        columnToSort: '',
+        sortDirection:'desc',
+    }
 
     componentDidMount = async () => {
 
-    this.setState({labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth, isLoading:true });
+        this.setState({labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth, isLoading:true });
 
-    fetch(url+'/weather/v1/agency')
-        .then(resp=> resp.json())
-        .then(data =>this.setState({agencies:data }))
-
-    try{
-        let stationUrl = await fetch(url+'/weather/v1/station');
-        let regionUrl = await fetch(url+'/weather/v1/region');
-        stationUrl = await stationUrl.json();
-        regionUrl = await regionUrl.json();
-        const data =[];
-          stationUrl.map( station => {
+        fetch(url+'/weather/v1/agency')
+            .then(resp=> resp.json())
+            .then(data =>this.setState({agencies:data }))
+        try{
+            let stationUrl = await fetch(url+'/weather/v1/station');
+            let regionUrl = await fetch(url+'/weather/v1/region');
+            stationUrl = await stationUrl.json();
+            regionUrl = await regionUrl.json();
+            const data =[];
+            stationUrl.map( station => {
                 const region = regionUrl.filter(region => station.region === region.id)
                 const newStation = station;
                 newStation.region = region[0].name;
                 data.push(newStation);
                 return '';
-          })
-          this.setState({data:data, isLoading:false})
-    }catch(e){
-         console.log("error", e)
-    }
-
+            })
+            this.setState({data:data, isLoading:false})
+        }catch(e){
+            console.log("error", e)
+        }
     }
 
     handleChange = async(event) => {
@@ -212,16 +208,16 @@ class App extends React.Component  {
                              }
                         }
                 }
-      };
+    };
 
     handleSort=(columnName) =>{
-            this.setState(state => ({
-                columnToSort: columnName,
-                sortDirection:
-                state.columnToSort === columnName
-                ? invertDirection[state.sortDirection]
-                :'asc'
-            }))
+        this.setState(state => ({
+            columnToSort: columnName,
+            sortDirection:
+            state.columnToSort === columnName
+            ? invertDirection[state.sortDirection]
+            :'asc'
+        }))
       }
     render(){
         const { classes } = this.props;
@@ -229,90 +225,77 @@ class App extends React.Component  {
 
         if (isLoading) {
             return (
-                           <div className={classes.root} >
-                               <Grid container spacing={0}>
-                               <Grid item xs={12} sm={6} className={classes.grid}>
-                               <FormControl variant="outlined" className={classes.formControl}>
-                                   <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
-                                       Agency
-                                   </InputLabel>
-                                   <Select value ={this.state.agency} onChange={this.handleChange}
-                                       input={<OutlinedInput labelWidth={this.state.labelWidth} name="agency" id="outlined-agency-simple"/>}>
-                                       <MenuItem value=""><em>All Agencies</em></MenuItem>
-                                       {agencies.map((value,index) =>
-                                           <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
-                                       )}
-                                   </Select>
-                               </FormControl>
-                               </Grid>
-
-                               <Grid item xs={12} sm={6} className={classes.grid}>
-                               <FormControl variant="outlined" className={classes.formControl}>
-                                   <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
-                                       Region
-                                   </InputLabel>
-                                   <Select value ={this.state.region} onChange={this.handleRegionChange}
-                                       input={<OutlinedInput labelWidth={this.state.labelWidth} name="region" id="outlined-region-simple"/>}>
-                                       <MenuItem value=""><em>None</em></MenuItem>
-                                       {this.state.regions.map((value,index) =>
-                                            <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
-                                       )}
-                                   </Select>
-                               </FormControl>
-                               </Grid>
-
-                               <GridLoader
-                                         css={override}
-                                         sizeUnit={"px"}
-                                         size={30}
-                                         color={'#000000'}
-                                         loading={this.state.loading}
-                                       />
-
-                           </Grid>
-                           </div>
-                         )
+                   <div className={classes.root} >
+                       <Grid container spacing={0}>
+                            <Grid item xs={12} sm={6} className={classes.grid}>
+                                <FormControl variant="outlined" className={classes.formControl}>
+                                    <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
+                                    Agency
+                                    </InputLabel>
+                                    <Select value ={this.state.agency} onChange={this.handleChange}
+                                        input={<OutlinedInput labelWidth={this.state.labelWidth} name="agency" id="outlined-agency-simple"/>}>
+                                        <MenuItem value=""><em>All Agencies</em></MenuItem>
+                                        {agencies.map((value,index) =>
+                                        <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                                    )}
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                            <Grid item xs={12} sm={6} className={classes.grid}>
+                                <FormControl variant="outlined" className={classes.formControl}>
+                                    <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
+                                    Region
+                                    </InputLabel>
+                                    <Select value ={this.state.region} onChange={this.handleRegionChange}
+                                        input={<OutlinedInput labelWidth={this.state.labelWidth} name="region" id="outlined-region-simple"/>}>
+                                        <MenuItem value=""><em>None</em></MenuItem>
+                                        {this.state.regions.map((value,index) =>
+                                        <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                                        )}
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                            <GridLoader css={override} sizeUnit={"px"} size={30} color={'#000000'} loading={this.state.loading}/>
+                        </Grid>
+                   </div>
+             )
         }
-
-      return (
-        <div className={classes.root} >
-            <Grid container spacing={0}>
-            <Grid item xs={12} sm={6} className={classes.grid}>
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
-                    Agency
-                </InputLabel>
-                <Select value ={this.state.agency} onChange={this.handleChange}
-                    input={<OutlinedInput labelWidth={this.state.labelWidth} name="agency" id="outlined-agency-simple"/>}>
-                    <MenuItem value=""><em>All Agencies</em></MenuItem>
-                    {agencies.map((value,index) =>
-                        <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
-                    )}
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid item xs={12} sm={6} className={classes.grid}>
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
-                    Region
-                </InputLabel>
-                <Select value ={this.state.region} onChange={this.handleRegionChange}
-                    input={<OutlinedInput labelWidth={this.state.labelWidth} name="region" id="outlined-region-simple"/>}>
-                    <MenuItem value=""><em>None</em></MenuItem>
-                    {this.state.regions.map((value,index) =>
-                         <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
-                    )}
-                </Select>
-            </FormControl>
-            </Grid>
-
-            <Grid item xs={12} sm={12} className={classes.grid}>
-                <span> {this.state.data.length} Station(s) found </span>
-            </Grid>
-
-            <Paper className={classes.paper}>
-                <Table item xs={12} sm={6} className={classes.table}
+        return (
+            <div className={classes.root} >
+                <Grid container spacing={0}>
+                    <Grid item xs={12} sm={6} className={classes.grid}>
+                    <FormControl variant="outlined" className={classes.formControl}>
+                        <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-agency-simple">
+                            Agency
+                        </InputLabel>
+                        <Select value ={this.state.agency} onChange={this.handleChange}
+                            input={<OutlinedInput labelWidth={this.state.labelWidth} name="agency" id="outlined-agency-simple"/>}>
+                            <MenuItem value=""><em>All Agencies</em></MenuItem>
+                            {agencies.map((value,index) =>
+                            <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} className={classes.grid}>
+                    <FormControl variant="outlined" className={classes.formControl}>
+                        <InputLabel ref={ref => {this.InputLabelRef = ref;}}htmlFor="outlined-region-simple">
+                            Region
+                        </InputLabel>
+                        <Select value ={this.state.region} onChange={this.handleRegionChange}
+                            input={<OutlinedInput labelWidth={this.state.labelWidth} name="region" id="outlined-region-simple"/>}>
+                            <MenuItem value=""><em>None</em></MenuItem>
+                            {this.state.regions.map((value,index) =>
+                            <MenuItem key ={index} value={value.id}>{value.name}</MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={12} className={classes.grid}>
+                    <span> {this.state.data.length} Station(s) found </span>
+                </Grid>
+                <Paper className={classes.paper}>
+                    <Table item xs={12} sm={6} className={classes.table}
                     data={orderBy(
                         this.state.data,
                         this.state.columnToSort,
@@ -367,10 +350,9 @@ class App extends React.Component  {
                             props: "region"
                         }
                     ]}/>
-            </Paper>
-
-        </Grid>
-        </div>
+                </Paper>
+                </Grid>
+            </div>
       );
     }
 }
