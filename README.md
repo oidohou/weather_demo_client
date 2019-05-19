@@ -1,68 +1,173 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Weather Demo Client (React app)
 
-In the project directory, you can run:
+Weather Demo Client is a FrontEnd App that allows to filter data in a table using dropdown selects to restrict data to selected agencies and regions
 
-### `npm start`
+## Components used:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    *Material-ui
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+    *lodash
 
-### `npm test`
+    *json-server
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run the application
 
-### `npm run build`
+1. Clone this repository anywhere on your computer
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/DraQlaBlood/weather_demo_client.git
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+2. Run the application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Make sure you have NODEJs installed on your computer 
 
-### `npm run eject`
+    In your CLI, go to the application folder 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ```
+    yarn start or npm start
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Open [http://localhost:8083](http://localhost:8083) to view it in the browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    Json-server will be running at [http://localhost:4000](http://localhost:4000)
+    In the project directory, you can run:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Connecting to BackEnd API 
 
-## Learn More
+1. clone API from [HERE](https://github.com/DraQlaBlood/weather_demo_server)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Update **const url** API's protocol+hostname+port in App.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Update the BackEnd API with CrossOrigin annotation on the request endpoint used.
 
-### Code Splitting
+4. Update the table component in App.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```javascript
+     header={[
+                        {
+                            name: "IATA",
+                            props: "IATA"
+                        },
+                        {
+                            name: "Name",
+                            props: "name"
+                        },
+                        {
+                            name: "WMO",
+                            props: "WMO"
+                        },
+                        {
+                            name: "MSC",
+                            props: "MSC_ID"
+                        },
+                        {
+                            name: "Latitude",
+                            props: "Latitude"
+                        },
+                        {
+                            name: "Longitude",
+                            props: "Longitude"
+                        },
+                        {
+                            name: "Elevation",
+                            props: "elevation"
+                        },
+                        {
+                            name: "Provider",
+                            props: "provider"
+                        },
+                        {
+                            name: "DataSet",
+                            props: "dataset"
+                        },
+                        {
+                            name: "Type",
+                            props: "type"
+                        },
+                        {
+                            name: "Region",
+                            props: "region"
+                        }
+                    ]}
+   ```
 
-### Analyzing the Bundle Size
+By the following 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```javascript
+     header={[
+                        {
+                            name: "IATA",
+                            props: "iata"
+                        },
+                        {
+                            name: "Name",
+                            props: "name"
+                        },
+                        {
+                            name: "WMO",
+                            props: "wmo"
+                        },
+                        {
+                            name: "MSC",
+                            props: "msc_ID"
+                        },
+                        {
+                            name: "Latitude",
+                            props: "latitude"
+                        },
+                        {
+                            name: "Longitude",
+                            props: "longitude"
+                        },
+                        {
+                            name: "Elevation",
+                            props: "elevation"
+                        },
+                        {
+                            name: "Provider",
+                            props: "provider"
+                        },
+                        {
+                            name: "DataSet",
+                            props: "dataset"
+                        },
+                        {
+                            name: "Type",
+                            props: "type"
+                        },
+                        {
+                            name: "Region",
+                            props: "region"
+                        }
+                    ]}
+   ```
 
-### Making a Progressive Web App
+5. Update package.json sripts   
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+ ```javascript
+"scripts": {
+    "json:server": "json-server --watch db.json --routes routes.json --port 4000",
+    "start:app": "cross-env PORT=8083 react-scripts start",
+    "start": "npm-run-all --parallel start:app json:server",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+ ```
+ 
+ By
+ 
+  ```javascript
+"scripts": {
+    "json:server": "json-server --watch db.json --routes routes.json --port 4000",
+    "start": "cross-env PORT=8083 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+ ```
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Then run both BackEnd Java/SpringBoot API and the React app.
