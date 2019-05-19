@@ -60,7 +60,7 @@ const override = css`
 class App extends React.Component  {
 
             state = {
-                labelWidth: 5,
+                labelWidth: 0,
                 agencies:[],
                 regions:[],
                 data:[],
