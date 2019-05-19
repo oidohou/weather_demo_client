@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import orderBy from 'lodash/orderBy';
 import Paper from '@material-ui/core/Paper';
 
+import { css } from '@emotion/core';
+import { GridLoader } from 'react-spinners';
 
 import Table from './components/table';
 
@@ -49,6 +51,11 @@ const invertDirection= {
     'desc':'asc'
 }
 const url = window.location.protocol+'//'+window.location.hostname+':4000';
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class App extends React.Component  {
 
@@ -254,9 +261,13 @@ class App extends React.Component  {
                                </FormControl>
                                </Grid>
 
-                               <Paper className={classes.paper}>
-                                  <p>Loading data ...</p>
-                               </Paper>
+                               <GridLoader
+                                         css={override}
+                                         sizeUnit={"px"}
+                                         size={30}
+                                         color={'#000000'}
+                                         loading={this.state.loading}
+                                       />
 
                            </Grid>
                            </div>
