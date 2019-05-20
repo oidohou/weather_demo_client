@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   paper:{
     width: '90%',
-    maxHeight:480,
+    maxHeight:440,
         marginTop: theme.spacing.unit ,
         margin: '0 auto',
         overflowX: 'auto',
@@ -38,7 +38,7 @@ const styles = theme => ({
     },
 
   formControl: {
-    margin: theme.spacing.unit*2,
+    margin: theme.spacing.unit,
     minWidth: 300,
   },
   selectEmpty: {
@@ -255,6 +255,7 @@ class App extends React.Component  {
                                     </Select>
                                 </FormControl>
                             </Grid>
+                            <Grid item xs={12} className={classes.grid}> <hr/> </Grid>
                             <GridLoader css={override} sizeUnit={"px"} size={30} color={'#000000'} loading={this.state.loading}/>
                         </Grid>
                    </div>
@@ -291,9 +292,12 @@ class App extends React.Component  {
                         </Select>
                     </FormControl>
                 </Grid>
+                <Grid item xs={12} className={classes.grid}> <hr/> </Grid>
                 <Grid item xs={12} sm={12} className={classes.grid}>
                     <span> {this.state.data.length} Station(s) found </span>
                 </Grid>
+
+
                 <Paper className={classes.paper}>
                     <Table item xs={12} sm={6} className={classes.table}
                     data={orderBy(
