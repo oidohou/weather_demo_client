@@ -33,8 +33,7 @@ git clone https://github.com/DraQlaBlood/weather_demo_client.git
     Open [http://localhost:8083](http://localhost:8083) to view it in the browser.
 
     Json-server will be running at [http://localhost:4000](http://localhost:4000)
-    In the project directory, you can run:
-
+    
 ## Connecting to BackEnd API 
 
 1. clone API from [HERE](https://github.com/DraQlaBlood/weather_demo_server)
