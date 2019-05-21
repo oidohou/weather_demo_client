@@ -303,7 +303,7 @@ class App extends React.Component  {
                     data={orderBy(
                         this.state.data,
                         this.state.columnToSort,
-                        this.state.sortDirection
+                        this.state.sortDirection 
                     )}
                     handleSort = {this.handleSort}
                     columnToSort = {this.state.columnToSort}
